@@ -38,7 +38,7 @@ LIVE_COLS = [
 FCST_COLS = ["collected_at", "area_cd", "area_nm", "fcst_time",
              "fcst_congest_lvl", "fcst_ppltn_min", "fcst_ppltn_max"]
 EVENT_COLS = ["collected_at", "area_cd", "area_nm",
-              "event_nm", "event_period", "event_place", "event_x", "event_y"]
+              "event_nm", "event_period", "event_place", "event_x", "event_y", "event_url"]
 
 # 응답 태그 → 우리 열 이름
 SUB_MAP = {
@@ -126,6 +126,7 @@ def parse(root, area_cd, area_nm, collected_at, want_events):
                 "event_place": text(e, "EVENT_PLACE"),
                 "event_x": text(e, "EVENT_X"),
                 "event_y": text(e, "EVENT_Y"),
+                "event_url": text(e, "URL"),
             })
     return live, fcst, events
 
